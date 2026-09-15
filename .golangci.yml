@@ -18,16 +18,16 @@ linters:
     - noctx         # HTTP requests without context
     - gosec         # security-sensitive checks (G-ids)
 
-settings:
-  gosec:
-    excludes:
-      # G304: file inclusion via variable path — the config/engine paths come
-      # from validated admin configuration, not user input. Reviewed per-site.
-      - G304
+  settings:
+    gosec:
+      excludes:
+        # G304: file inclusion via variable path — the config/engine paths come
+        # from validated admin configuration, not user input. Reviewed per-site.
+        - G304
 
-issues:
-  exclude-rules:
+  exclusions:
     # Tests legitimately use math/rand-free patterns, fmt errors, etc.
-    - path: _test\.go
-      linters:
-        - gosec
+    rules:
+      - path: _test\.go
+        linters:
+          - gosec
