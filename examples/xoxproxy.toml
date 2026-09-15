@@ -1,0 +1,44 @@
+# xoxproxy control-plane configuration.
+#
+# Every setting below is the built-in default; the file may omit any
+# section. Validate changes with: xoxproxy config validate -config <file>
+
+[server]
+# The control plane binds loopback by default and expects to sit behind
+# Caddy (TLS) in production. NEVER bind 0.0.0.0 without a reverse proxy
+# and TLS in front.
+listen = "127.0.0.1:8080"
+
+# Externally reachable dashboard origin, set by the installer when a domain
+# is configured. Used for link generation and cookie scope.
+# public_base_url = "https://proxy.example.com"
+
+[database]
+# SQLite database file (WAL mode). Created automatically with migrations.
+path = "/var/lib/xoxproxy/xoxproxy.db"
+
+[engine]
+# Proxy engine provider. "threeproxy" is the only provider in v1.
+provider = "threeproxy"
+binary_path = "/usr/bin/3proxy"
+# Generated engine files (3proxy.cfg, users.txt) live here. Written only by
+# the deploy pipeline, atomically.
+config_dir = "/etc/xoxproxy/engine"
+
+[proxy]
+# Public proxy listener ports. The engine runs unprivileged, so ports must
+# be >= 1024 and must differ from each other.
+http_port = 3128
+socks5_port = 1080
+
+[analytics]
+# How often in-memory traffic counters flush to the database. Longer means
+# fewer writes but coarser failure loss bounds.
+flush_interval = "30s"
+# Bound on the ingestion queue. When exceeded, counters are coalesced in
+# memory rather than blocking.
+queue_size = 8192
+
+[log]
+# debug | info | warn | error — JSON structured output to stdout (journald).
+level = "info"

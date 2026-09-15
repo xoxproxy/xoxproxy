@@ -1,0 +1,35 @@
+node_modules/
+.claude
+GUIDE.md
+DEVELOPMENT.md
+
+# Build output
+/bin/
+/dist/
+*.test
+coverage.out
+coverage.html
+
+# Go workspace cruft
+go.work
+go.work.sum
+
+# Frontend build (Phase 8)
+web/dist/
+
+# Local env / secrets — never commit
+.env
+*.env
+
+# Editor / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Spike research artifacts (3proxy source downloads, compiled tools)
+.spike/
+
+# TypeScript incremental build cache
+*.tsbuildinfo

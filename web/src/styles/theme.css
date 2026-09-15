@@ -1,0 +1,347 @@
+@import "tailwindcss";
+/* Design tokens — copied verbatim from GUIDE.md (dashboard spec). The
+   Tailwind @theme block at the bottom maps utilities onto these variables
+   so bg-surface-1 / text-secondary / border-2 etc. resolve to the tokens. */
+
+:root {
+  /* BRAND COLORS */
+  --brand-50: #EDF3FE;
+  --brand-100: #E4EDFD;
+  --brand-200: #D3E2FF;
+  --brand-300: #B7C8FE;
+  --brand-400: #679EFE;
+  --brand-450: #5686FE;
+  --brand-500: #3964FE;
+  --brand-600: #4868B2;
+  --brand-700: #2F4C8F;
+  --brand-800: #34415B;
+  --brand-900: #283142;
+
+  /* STANDARD NEUTRAL */
+  --neutral-00: #FFFFFF;
+  --neutral-50: #FAFAFA;
+  --neutral-100: #F5F5F5;
+  --neutral-150: #EDEDED;
+  --neutral-200: #E5E5E5;
+  --neutral-250: #DCDCDC;
+  --neutral-300: #D4D4D4;
+  --neutral-400: #A2A4A6;
+  --neutral-500: #7F8287;
+  --neutral-550: #65676B;
+  --neutral-600: #545557;
+  --neutral-700: #3C3C3D;
+  --neutral-800: #292929;
+  --neutral-850: #212123;
+  --neutral-900: #0F0F0F;
+  --neutral-1000: #000000;
+
+  /* BLUISH NEUTRAL */
+  --bluegray-00: #FFFFFF;
+  --bluegray-50: #F9FAFB;
+  --bluegray-60: #F5F6F7;
+  --bluegray-75: #F1F3F5;
+  --bluegray-100: #EBEEF2;
+  --bluegray-150: #E9ECF2;
+  --bluegray-200: #E1E5EE;
+  --bluegray-300: #CFD3D6;
+  --bluegray-400: #ADB2B8;
+  --bluegray-500: #979DA6;
+  --bluegray-600: #81858C;
+  --bluegray-700: #61666B;
+  --bluegray-750: #43454A;
+  --bluegray-800: #353638;
+  --bluegray-850: #2C2C2E;
+  --bluegray-875: #232324;
+  --bluegray-900: #1B1B1C;
+  --bluegray-950: #151517;
+  --bluegray-1000: #0F1115;
+
+  /* STATUS COLORS */
+  --success-100: #E6FAED;
+  --success-400: #4ED17E;
+  --success-500: #22C55E;
+  --success-900: #233C2C;
+
+  --warning-100: #FEF5E7;
+  --warning-400: #F7AD31;
+  --warning-500: #F59E0B;
+  --warning-600: #DD8629;
+  --warning-900: #27241F;
+
+  --error-50: #FEF2F2;
+  --error-100: #FEE2E2;
+  --error-400: #F25A5A;
+  --error-500: #EF4444;
+  --error-600: #EC1313;
+  --error-900: #570C0C;
+
+  --info-50: #EFF6FF;
+  --info-100: #DBEAFE;
+  --info-300: #93C5FD;
+  --info-400: #60A5FA;
+  --info-500: #3B82F6;
+  --info-600: #2563EB;
+  --info-800: #1E40AF;
+  --info-950: #172554;
+
+  /* LIGHT THEME */
+  --background: #FFFFFF;
+  --surface-1: #FFFFFF;
+  --surface-2: #FFFFFF;
+  --surface-3: #FFFFFF;
+  --text-primary: #0F1115;
+  --text-secondary: #61666B;
+  --text-tertiary: #81858C;
+  --text-caption: #ADB2B8;
+  --text-on-brand: #FFFFFF;
+  --border-1: rgba(0, 0, 0, .04);
+  --border-2: rgba(0, 0, 0, .10);
+  --border-3: rgba(0, 0, 0, .12);
+  --border-4: rgba(0, 0, 0, .16);
+  --brand-primary: #3964FE;
+  --brand-text: #3964FE;
+
+  /* BUTTONS — LIGHT */
+  --button-primary: #3964FE;
+  --button-primary-hover: #5686FE;
+  --button-elevated: #FFFFFF;
+  --button-elevated-hover: #F1F3F5;
+  --button-floating: #FFFFFF;
+  --button-floating-hover: #F1F3F5;
+  --button-contrast: #61666B;
+  --button-ghost-fill: #EDF3FE;
+  --button-ghost-hover: #E4EDFD;
+  --button-ghost-border: #B7C8FE;
+
+  /* INTERACTION */
+  --interactive-hover: rgba(38,49,72,.06);
+  --interactive-active: rgba(38,49,72,.10);
+  --interactive-accent-hover: rgba(38,49,72,.14);
+  --interactive-danger-hover: rgba(236,19,19,.05);
+  --focus-ring: #3964FE;
+
+  /* CONTROL HEIGHTS */
+  --control-xs: 28px;
+  --control-s: 32px;
+  --control-m: 36px;
+  --control-l: 40px;
+  --control-xl: 44px;
+
+  /* TYPOGRAPHY */
+  --font-family: "quote-cjk-patch", "Inter", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  --font-family-code: Menlo, Monaco, Consolas, "Cascadia Mono", "Ubuntu Mono",
+    "JetBrains Mono", "Fira Code", "Roboto Mono", "Courier New", monospace;
+  --font-weight-normal: 400;
+  --font-weight-strong: 600;
+  --font-xs: 10px;
+  --font-xsp: 11px;
+  --font-s: 12px;
+  --font-sp: 13px;
+  --font-m: 14px;
+  --font-l: 16px;
+  --line-xs: 18px;
+  --line-xsp: 19.5px;
+  --line-s: 21px;
+  --line-sp: 23px;
+  --line-m: 25px;
+  --line-l: 28px;
+
+  /* RADIUS */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-control: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-circle: 50%;
+  --radius-pill: 9999px;
+
+  /* SPACING */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 6px;
+  --space-4: 8px;
+  --space-5: 10px;
+  --space-6: 12px;
+  --space-7: 14px;
+  --space-8: 16px;
+  --space-9: 20px;
+  --space-10: 24px;
+  --space-11: 28px;
+  --space-12: 32px;
+  --space-13: 40px;
+  --space-14: 48px;
+
+  /* SHADOWS */
+  --shadow-1: 0 2px 4px rgba(0,0,0,.05);
+  --shadow-1-blur: 0 4px 12px rgba(0,0,0,.02);
+  --shadow-2: 0 4px 12px rgba(0,0,0,.02), 0 2px 8px rgba(0,0,0,.04);
+  --shadow-3: 0 0 1px rgba(0,0,0,.20), 0 0 4px rgba(0,0,0,.02),
+    0 12px 32px rgba(0,0,0,.08);
+
+  /* MOTION */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --ease-in: cubic-bezier(.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, .2, 1);
+  --duration-fast: 100ms;
+  --duration: 200ms;
+  --duration-slow: 300ms;
+}
+
+[data-ds-dark-theme],
+.dark {
+  /* SURFACES */
+  --background: #151517;
+  --surface-1: #232324;
+  --surface-2: #2C2C2E;
+  --surface-3: #353638;
+
+  /* TEXT */
+  --text-primary: #F9FAFB;
+  --text-secondary: #CFD3D6;
+  --text-tertiary: #ADB2B8;
+  --text-caption: #81858C;
+  --text-on-brand: #FFFFFF;
+
+  /* BORDERS */
+  --border-1: rgba(255,255,255,.06);
+  --border-2: rgba(255,255,255,.12);
+  --border-3: rgba(255,255,255,.16);
+  --border-4: rgba(255,255,255,.20);
+
+  /* BRAND */
+  --brand-primary: #5686FE;
+  --brand-text: #679EFE;
+
+  /* BUTTONS */
+  --button-primary: #5686FE;
+  --button-primary-hover: #3964FE;
+  --button-elevated: #43454A;
+  --button-elevated-hover: #353638;
+  --button-floating: #2C2C2E;
+  --button-floating-hover: #353638;
+  --button-contrast: #F9FAFB;
+  --button-ghost-fill: #283142;
+  --button-ghost-hover: #34415B;
+  --button-ghost-border: #4868B2;
+
+  /* INTERACTION */
+  --interactive-hover: rgba(255,255,255,.08);
+  --interactive-active: rgba(255,255,255,.14);
+  --interactive-accent-hover: rgba(255,255,255,.24);
+  --interactive-danger-hover: rgba(242,90,90,.15);
+  --focus-ring: #5686FE;
+
+  /* CODE / MARKDOWN */
+  --code-background: #1B1B1C;
+  --code-inline: #2C2C2E;
+
+  /* SHADOWS */
+  --shadow-1: 0 2px 4px rgba(0,0,0,.05);
+  --shadow-2: 0 4px 12px rgba(0,0,0,.02), 0 2px 8px rgba(0,0,0,.04);
+  --shadow-3: 0 0 1px rgba(0,0,0,.2), 0 0 4px rgba(0,0,0,.02),
+    0 12px 32px rgba(0,0,0,.08);
+}
+
+/* --- Tailwind v4 -------------------------------------------------
+   Import first, then map the tokens into theme utilities. Utilities
+   referencing the *vars* (not hardcoded hex) stay correct when .dark
+   flips the values at runtime. */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-tertiary: var(--text-tertiary);
+  --color-caption: var(--text-caption);
+  --color-on-brand: var(--text-on-brand);
+  --color-brand: var(--brand-primary);
+  --color-brand-text: var(--brand-text);
+  --color-line-1: var(--border-1);
+  --color-line-2: var(--border-2);
+  --color-line-3: var(--border-3);
+  --color-line-4: var(--border-4);
+  --color-success: var(--success-500);
+  --color-success-soft: var(--success-100);
+  --color-warning: var(--warning-500);
+  --color-warning-soft: var(--warning-100);
+  --color-error: var(--error-500);
+  --color-error-soft: var(--error-100);
+  --color-info: var(--info-500);
+  --color-info-soft: var(--info-100);
+
+  --font-sans: var(--font-family);
+  --font-mono: var(--font-family-code);
+
+  --radius-control: var(--radius-control);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+
+  --shadow-card: var(--shadow-1);
+  --shadow-modal: var(--shadow-3);
+
+  --animate-fade-in: fade-in var(--duration) var(--ease);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- base ------------------------------------------------------ */
+
+html {
+  font-family: var(--font-family);
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text-primary);
+  font-size: var(--font-m);
+  line-height: var(--line-m);
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--brand-200);
+  color: var(--text-primary);
+}
+html.dark ::selection {
+  background: var(--brand-800);
+}
+
+/* Focus visibility: single consistent ring. */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Slim scrollbars that match the theme. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-3) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--border-3);
+  border-radius: var(--radius-pill);
+}

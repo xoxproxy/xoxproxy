@@ -1,0 +1,13 @@
+# Shell scripts and systemd-adjacent files must keep LF everywhere;
+# a CRLF install.sh would fail on Linux after a Windows checkout.
+*.sh text eol=lf
+*.service text eol=lf
+go.mod text eol=lf
+go.sum text eol=lf
+
+# Frontend lockfile: keep as-authored.
+pnpm-lock.yaml text
+
+# Binary-ish build output is never line-converted.
+*.png binary
+*.ico binary
